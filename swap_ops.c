@@ -3,15 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   swap_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 10:52:05 by jschott           #+#    #+#             */
-/*   Updated: 2023/08/22 09:52:00 by jschott          ###   ########.fr       */
+/*   Updated: 2024/08/08 11:16:38 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * Executes operations on two stacks based on the given operation code.
+ * 
+ * @param op A string representing the operation code.
+ * @param a A pointer to the first stack.
+ * @param b A pointer to the second stack.
+ */
 void	exec_ops(char *op, t_list **a, t_list **b)
 {
 	if (!ft_memcmp(op, "sa", 3) || !ft_memcmp(op, "ss", 3))
@@ -34,6 +41,11 @@ void	exec_ops(char *op, t_list **a, t_list **b)
 	write (1, "\n", 1);
 }
 
+/**
+ * Swaps the top two elements of a stack.
+ * 
+ * @param stack A pointer to the stack on which to perform the swap operation.
+ */
 void	swap(t_list **stack)
 {
 	t_list	*new_1;
@@ -48,6 +60,12 @@ void	swap(t_list **stack)
 	(*stack) = new_1;
 }
 
+/**
+ * Pushes the top element from one stack to another.
+ * 
+ * @param dest A pointer to the destination stack.
+ * @param src A pointer to the source stack.
+ */
 void	push(t_list **dest, t_list **src)
 {
 	t_list	*tmp;
@@ -72,6 +90,11 @@ void	push(t_list **dest, t_list **src)
 	(*src) = tmp;
 }
 
+/**
+ * Rotates all elements of a stack up by one position.
+ * 
+ * @param stack A pointer to the stack on which to perform the rotate operation.
+ */
 void	rotate(t_list **stack)
 {
 	t_list	*new_1;
@@ -86,6 +109,11 @@ void	rotate(t_list **stack)
 	(*stack) = new_1;
 }
 
+/**
+ * Rotates all elements of a stack down by one position.
+ * 
+ * @param stack A pointer to the stack on which to perform the reverse rotate operation.
+ */
 void	rrotate(t_list **stack)
 {
 	t_list	*new_1;

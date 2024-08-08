@@ -3,15 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   sort_logic.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:37:53 by jschott           #+#    #+#             */
-/*   Updated: 2023/08/22 09:51:43 by jschott          ###   ########.fr       */
+/*   Updated: 2024/08/08 11:17:34 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * Sorts a stack of three elements.
+ * 
+ * @param a A pointer to the top of the stack to be sorted.
+ */
 void	sort_three(t_list **a)
 {
 	long	b;
@@ -39,6 +44,14 @@ void	sort_three(t_list **a)
 		exec_ops("rra", a, NULL);
 }
 
+/**
+ * Calculates the optimal number of moves to sort a given number into its correct position.
+ * 
+ * @param stack A pointer to the top of the stack.
+ * @param num The number to be sorted into its correct position.
+ * @param res The resolution used for sorting.
+ * @return The optimal number of moves to sort the number.
+ */
 long int	calc_move(t_list **stack, unsigned int num, int res)
 {
 	long int	i;
@@ -68,6 +81,15 @@ long int	calc_move(t_list **stack, unsigned int num, int res)
 	return (0);
 }
 
+/**
+ * Determines the cheapest move to sort the top or bottom number of a stack.
+ * 
+ * @param stack A pointer to the top of the stack.
+ * @param top The top number to be considered for sorting.
+ * @param bot The bottom number to be considered for sorting.
+ * @param res The resolution used for sorting.
+ * @return 1 if a move is executed, 0 otherwise.
+ */
 int	cheapest_move(t_list **stack, unsigned top, unsigned bot, int res)
 {
 	long int	move2top;
@@ -94,6 +116,14 @@ int	cheapest_move(t_list **stack, unsigned top, unsigned bot, int res)
 	return (1);
 }
 
+/**
+ * Sorts elements from stack `a` to stack `b` based on bucketing strategy.
+ * 
+ * @param a A pointer to the top of stack `a`.
+ * @param b A pointer to the top of stack `b`.
+ * @param size The total number of elements to sort.
+ * @param res The resolution used for bucketing.
+ */
 void	sort2b(t_list **a, t_list **b, long int size, int res)
 {
 	unsigned int	top_buck;
@@ -122,6 +152,12 @@ void	sort2b(t_list **a, t_list **b, long int size, int res)
 	}
 }
 
+/**
+ * Sorts a stack of five elements.
+ * 
+ * @param a A pointer to the top of stack `a`.
+ * @param b A pointer to the top of stack `b`.
+ */
 void	sort_five(t_list **a, t_list **b)
 {
 	long int		size;

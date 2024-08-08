@@ -3,15 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 12:20:26 by jschott           #+#    #+#             */
-/*   Updated: 2023/08/15 15:46:51 by jschott          ###   ########.fr       */
+/*   Updated: 2024/08/08 11:22:06 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * Duplicates a string by allocating memory and copying the string into it.
+ * 
+ * @param s A pointer to the string to be duplicated.
+ * @return A pointer to the duplicated string, or `NULL` if memory allocation fails.
+ */
 char	*ft_strdup(const char *s)
 {
 	char	*dup;

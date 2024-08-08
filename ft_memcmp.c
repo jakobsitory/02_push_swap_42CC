@@ -3,15 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 14:33:30 by jschott           #+#    #+#             */
-/*   Updated: 2023/07/18 10:24:30 by jschott          ###   ########.fr       */
+/*   Updated: 2024/08/08 11:25:10 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * Compares two blocks of memory.
+ * 
+ * @param s1 A pointer to the first memory block to be compared.
+ * @param s2 A pointer to the second memory block to be compared.
+ * @param n The number of bytes to compare.
+ * @return An integer less than, equal to, or greater than zero if `s1` is found, respectively, to be less than, to
+ * match, or be greater than `s2`.
+ */
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t				i;

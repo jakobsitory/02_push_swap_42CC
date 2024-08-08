@@ -3,15 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   sort_logic_toa.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 11:57:01 by jschott           #+#    #+#             */
-/*   Updated: 2023/08/21 16:36:25 by jschott          ###   ########.fr       */
+/*   Updated: 2024/08/08 11:18:42 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * Finds and executes the cheapest move to sort a number from stack `b` to stack `a`.
+ * 
+ * The function `cheapest_move_a` determines the cheapest (minimum number of moves) way to sort either the top or
+ * bottom number of stack `b` into its correct position in stack `a`, based on a given resolution (`res`). It
+ * calculates the number of moves required to bring the top or bottom number to the top of stack `b` and then
+ * executes the necessary operations (`rb` for rotate up, `rrb` for rotate down) to move the number to stack `a`.
+ * 
+ * @param stack A pointer to the top of stack `b`.
+ * @param top The index divided by `res` of the top number in stack `b`.
+ * @param bot The index divided by `res` of the bottom number in stack `b`.
+ * @param res The resolution used for sorting.
+ * @return 1 if a move is executed, 0 otherwise.
+ */
 int	cheapest_move_a(t_list **stack, unsigned top, unsigned bot, int res)
 {
 	long int	move2top;
@@ -38,6 +52,19 @@ int	cheapest_move_a(t_list **stack, unsigned top, unsigned bot, int res)
 	return (1);
 }
 
+/**
+ * Sorts elements from stack `b` to stack `a` based on bucketing strategy.
+ * 
+ * The function `sort2a` implements a bucketing strategy to sort elements from stack `b` back to stack `a`. It
+ * divides the elements into buckets based on a resolution (`res`) and moves elements to stack `a` while maintaining
+ * the order. It uses `exec_ops` to execute operations like `pa` (push to stack `a`) and `ra` (rotate stack `a` up).
+ * It also calls `cheapest_move_a` to find and execute the cheapest move for sorting numbers from stack `b` to `a`.
+ * 
+ * @param a A pointer to the top of stack `a`.
+ * @param b A pointer to the top of stack `b`.
+ * @param size The total number of elements to sort.
+ * @param res The resolution used for bucketing.
+ */
 void	sort2a(t_list **a, t_list **b, long int size, int res)
 {
 	unsigned int	top_buck;

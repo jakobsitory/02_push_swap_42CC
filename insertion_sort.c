@@ -3,15 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   insertion_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 12:52:12 by jschott           #+#    #+#             */
-/*   Updated: 2023/08/21 17:11:18 by jschott          ###   ########.fr       */
+/*   Updated: 2024/08/08 11:21:15 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * Searches for the optimal position to insert a number into a sorted stack.
+ * 
+ * @param stack A pointer to the top of the stack.
+ * @param num The index of the number to be inserted.
+ * @return The number of moves to reach the insertion point from the top or bottom.
+ */
 long	search_slot(t_list **stack, long num)
 {
 	long	i;
@@ -41,6 +48,14 @@ long	search_slot(t_list **stack, long num)
 	return (i);
 }
 
+/**
+ * Executes the cheapest combination of operations to shuffle elements between two stacks.
+ * 
+ * @param dest A pointer to the destination stack.
+ * @param src A pointer to the source stack.
+ * @param move_dst The number of moves to insert the element into the destination stack.
+ * @param move_src The number of moves to bring the next candidate to the top of the source stack.
+ */
 void	exec_cheapest_shuffle(t_list **dest, t_list **src, \
 								long move_dst, long move_src)
 {
@@ -66,6 +81,12 @@ void	exec_cheapest_shuffle(t_list **dest, t_list **src, \
 		exec_ops("rb", dest, src);
 }
 
+/**
+ * Determines and executes the cheapest operation to shuffle one element from the source stack to the destination.
+ * 
+ * @param dest A pointer to the destination stack.
+ * @param src A pointer to the source stack.
+ */
 void	cheapest_shuffle(t_list **dest, t_list **src)
 {
 	long	move_dst;

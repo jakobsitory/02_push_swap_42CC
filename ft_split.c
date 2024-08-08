@@ -3,15 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jschott <jschott@student.42berlin.de>      +#+  +:+       +#+        */
+/*   By: jschott <jschott@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:59:06 by jschott           #+#    #+#             */
-/*   Updated: 2023/08/17 13:43:41 by jschott          ###   ########.fr       */
+/*   Updated: 2024/08/08 11:24:22 by jschott          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * Counts the number of words in a string separated by a specific character.
+ * 
+ * @param s A pointer to the input string.
+ * @param c The delimiter character.
+ * @return The number of words in the string.
+ */
 int	ft_words_in_str(char const *s, char c)
 {
 	int		count;
@@ -31,6 +38,11 @@ int	ft_words_in_str(char const *s, char c)
 	return (count);
 }
 
+/**
+ * Frees all allocated memory in an array of strings.
+ * 
+ * @param arr A pointer to the array of strings to be freed.
+ */
 void	ft_freeall(char **arr)
 {
 	int	i;
@@ -41,6 +53,14 @@ void	ft_freeall(char **arr)
 	free (arr);
 }
 
+/**
+ * Allocates memory for and copies a substring into a new string.
+ * 
+ * @param pos A pointer to the start position of the substring in the input string.
+ * @param len The length of the substring to copy.
+ * @param words A pointer to an array of previously allocated strings, to be freed in case of an error.
+ * @return A pointer to the newly allocated string, or NULL if memory allocation fails.
+ */
 char	*ft_writestr(char *pos, int len, char **words)
 {
 	char	*word;
@@ -55,6 +75,14 @@ char	*ft_writestr(char *pos, int len, char **words)
 	return (word);
 }
 
+/**
+ * Finds the first occurrence of a character different from `c` in a string.this character. If all characters in `s` match `c` or if `s`
+ * is empty, the function returns `NULL`.
+ * 
+ * @param s A pointer to the string to be searched.
+ * @param c The character to be compared against, cast to an `int`.
+ * @return A pointer to the first character in `s` that is not `c`, or `NULL` if no such character exists.
+ */
 char	*ft_strnchr(char *s, int c)
 {
 	int		i;
@@ -69,6 +97,13 @@ char	*ft_strnchr(char *s, int c)
 	return (0);
 }
 
+/**
+ * Splits a string into an array of strings based on a delimiter character.
+ * 
+ * @param s The input string to be split.
+ * @param c The delimiter character.
+ * @return A pointer to the array of strings, or `NULL` if an error occurs.
+ */
 char	**ft_split(char const *s, char c)
 {
 	int		i;
